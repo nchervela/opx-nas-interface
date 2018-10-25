@@ -41,6 +41,9 @@ def show_intf(args):
     else:
         call(["cps_get_oid.py", "target/"+intf_key, intf_name_key + '=' + args.intf_name])
 
+def delete_intf(port_id, subport_id=0):
+        call(["cps_set_oid.py", "-qua", "target", "-oper", "action", set_intf_key, oper_key + '=' + oper_type['delete'],
+              intf_type_key+'='+intf_types['ether'], intf_name_key+'='+ args.intf_name, fp_port_key+'='+port_id, subport_id_key+'='+subport_id])
 
 def config_intf(args):
 
